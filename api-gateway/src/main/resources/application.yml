@@ -1,20 +1,21 @@
 server:
-  port:9000
+  port: 9000
+
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-     defaultZone: http://localhost:8761/eureka/
-     instance:
-       hostname: localhost
+    register-with-eureka:true
+    fetch-registry:true
+  service-url:
+    defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
 
 spring:
- application:
-  name: API-GATEWAY
+  application:
+    name: API-GATEWAY
   cloud:
-   gateway:
-    routes:
+    gateway:
+      routes:
         - id: USER-SERVICE
           uri: lb://USER-SERVICE
           predicates:
